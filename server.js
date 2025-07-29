@@ -9,7 +9,8 @@ const authRoutes = require("./routes/auth.routes")
 const session = require("express-session")
 const passUserToView = require('./middleware/passUserToView')
 const isSignedIn = require("./middleware/isSignedIn")
-
+const User  = require("./models/User")
+const Game = require("./models/Game")
 
 
 

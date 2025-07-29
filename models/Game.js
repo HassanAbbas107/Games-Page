@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const User = require("./User")
 const raittingSchema = new mongoose.Schema({
     rate: String,
     content: String,
