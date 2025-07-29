@@ -1,5 +1,6 @@
-
-
+const Game = require("../models/Game")
+const router = require("express").Router()
+const User =require("../models/User")
 
 
 router.get("/home", async (req,res)=>{
@@ -10,3 +11,6 @@ router.get("/home", async (req,res)=>{
         console.log(error)
     }
 })
+
+
+module.exports = router
