@@ -11,7 +11,7 @@ router.get("/home",async(req,res)=>{
 router.post("/",async(req,res)=>{
     try{
         await Game.create(req.body)
-        res.redirect("/user/home")
+        res.redirect("/game/home")
     }
     catch(error){
         console.log(error)

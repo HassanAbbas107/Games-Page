@@ -8,5 +8,16 @@
 </head>
 <body>
     <h1>HOME</h1>
+    <% AllGames.forEach(game => { %>
+    <div>
+        <ul>
+            <li>Name of the game <%= game.name %></li>
+            <li>maker of the game <%= game.user %> </li>
+            <li>link to the game <%= game.link %> </li>
+            <li>game raitting<%= game.raitting %> </li>
+
+        </ul>
+    </div>
+    <% }) %>
 </body>
 </html>
