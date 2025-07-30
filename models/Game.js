@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const User = require("./User")
 const raittingSchema = new mongoose.Schema({
     rate: String,
     content: String,
@@ -12,9 +11,9 @@ const gameSchema = new mongoose.Schema({
     link:{
         type:String
     },
-    user:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"User"
+    creater:{
+        type:String,
+        
     }
     , raitting:[raittingSchema]
 

@@ -8,7 +8,15 @@ router.get("/home",async(req,res)=>{
     res.render("user/home.ejs",{allGames: allGames})
 })
 
-router.post("/",async(req,res)=>{
+router.get("/new", (req,res)=>{
+    try {
+       res.render("./user/new") 
+    } catch (error) {
+      console.log(error)  
+    }
+
+})
+router.post("/new",async(req,res)=>{
     try{
         await Game.create(req.body)
         res.redirect("/game/home")
