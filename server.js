@@ -9,9 +9,7 @@ const authRoutes = require("./routes/auth.routes")
 const session = require("express-session")
 const passUserToView = require('./middleware/passUserToView')
 const isSignedIn = require("./middleware/isSignedIn")
-const User  = require("./models/User")
-const Game = require("./models/")
-
+const gameRoute = require("./routes/game.routes")
 
 
 
@@ -49,7 +47,7 @@ conntectToDB()
 app.use("/auth",authRoutes)
 app.use(isSignedIn) //all your protected routes go below this middleware
 // Routes go here
-
+app.use("/game",gameRoute)
 
 
 
