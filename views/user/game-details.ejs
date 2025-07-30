@@ -7,9 +7,13 @@
 </head>
 <body>
    <h1 style="text-align: center;"> <%=foundGame.name %></h1>
-    <!-- <iframe style="height: 800px;width:700px;" src="<%=foundGame.link%>" ></iframe>  -->
-    <iframe src="<%=foundGame.link%>" allowfullscreen ></iframe> 
+    <iframe style="height: 500px;width:900px; margin: 0 auto;   " src="<%=foundGame.link%>" >
+    </iframe> 
     
+    <form action="/game/<%=foundGame._id%>?_method=DELETE" method="post">
+    <button type="submit">Delete Game</button>
+    <a href="/game/<%= foundGame._id%>/update">update the game</a>
+   </form>
     
 
 </body>
