@@ -15,7 +15,13 @@ const gameSchema = new mongoose.Schema({
         type:String,
         
     }
-    , raitting:[raittingSchema]
+    , raitting:[raittingSchema],
+    width:{
+        type:Number
+    },
+    height:{
+        type:Number
+    }
 
 })
 

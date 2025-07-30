@@ -25,4 +25,29 @@ router.post("/new",async(req,res)=>{
         console.log(error)
     }
 })
+
+router.get("/:gameId",async(req,res)=>{
+    try{
+        const foundGame= await Game.findById(req.params.gameId)
+        res.render("user/game-details.ejs",{foundGame: foundGame})
+    }
+    catch(error){
+        console.log(error)
+    }
+})
+ router.get("/new", async (req,res)=>{
+    res.render("/user/new.ejs")
+ })
+
+
+ router.delete("/:gameId", async (req,res)=>{
+         try{
+        const deletedgame = await Game.findByIdAndDelete(req.params.id)
+        res.redirect("/home")
+    }
+    catch(error){
+        console.log(error)
+    }
+})
+
 module.exports = router
