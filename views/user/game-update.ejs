@@ -6,15 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-        <form action="/game/new" method="post">
+        <form action="/game/<%= foundGame._id %>?_method=PUT" method="post">
         <label for="name">Game Name:</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" value="<%= foundGame.name %>" >
 
         <label for="link">Game Link:</label>
-        <input type="text" name="link" id="Link">
+        <input type="text" name="link" id="Link" value="<%= foundGame.link %>">
 
         <label for="creater">creater Name:</label>
-        <input type="text" name="creater" id="creater">
+        <input type="text" name="creater" id="creater"  value="<%= foundGame.creater %>">
 
 
         <button type="submit">Create Game</button>

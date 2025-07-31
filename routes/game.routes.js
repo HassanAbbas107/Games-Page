@@ -43,7 +43,7 @@ router.get("/:gameId",async(req,res)=>{
  router.delete("/:gameId", async (req,res)=>{
          try{
         const deletedgame = await Game.findByIdAndDelete(req.params.gameId)
-        res.redirect("/game")
+        res.redirect("/game/home")
     }
     catch(error){
         console.log(error)
@@ -53,7 +53,7 @@ router.get("/:gameId",async(req,res)=>{
 //update
 router.get("/:gameId/update",async(req,res)=>{
     try{
-        const foundGame = await Game.findById(req.params.id)
+        const foundGame = await Game.findById(req.params.gameId)
         res.render("user/game-update.ejs",{foundGame})
     }
     catch(error){
@@ -65,7 +65,7 @@ router.get("/:gameId/update",async(req,res)=>{
 router.put("/:gameId",async(req,res)=>{
     
     const updatedgame = await  Game.findByIdAndUpdate(req.params.gameId, req.body)
-    res.redirect("/home")
+    res.redirect("/game/home")
 })
 
 module.exports = router
