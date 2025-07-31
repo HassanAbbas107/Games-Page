@@ -3,20 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= foundGame.name %></title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
 </head>
 <body>
-   <h1 style="text-align: center;"> <%=foundGame.name %></h1>
-    <iframe style="height: 500px;width:900px; margin: 0 auto;   " src="<%=foundGame.link%>" >
-    </iframe> 
-    <% if (user._id == foundGame.creater) { %>
-    <form action="/game/<%=foundGame._id%>?_method=DELETE" method="post">
-    <button type="submit">Delete Game</button>
-    <a href="/game/<%= foundGame._id%>/update">update the game</a>
-   </form>
-    
+   <h1 style="text-align: center;"><%= foundGame.name %></h1>
+    <iframe id="myIframe" src="<%= foundGame.link %>" allow="fullscreen"></iframe>
+    <button id="fullscreenButton">Toggle Fullscreen</button>
+
+    <% if (user && user._id == foundGame.creater) { %>
+      <form action="/game/<%= foundGame._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Game</button>
+        <a href="/game/<%= foundGame._id %>/update">Update the game</a>
+      </form>
     <% } %>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('myIframe');
+            const fullscreenButton = document.getElementById('fullscreenButton');
+            
+            // Modern approach using the Fullscreen API
+            fullscreenButton.addEventListener('click', async () => {
+                try {
+                    if (!document.fullscreenElement) {
+                        // Try to make the iframe fullscreen first
+                        if (iframe.requestFullscreen) {
+                            await iframe.requestFullscreen();
+                        } 
+                        // If iframe fullscreen fails, make the entire page fullscreen
+                        else if (document.documentElement.requestFullscreen) {
+                            await document.documentElement.requestFullscreen();
+                        }
+                    } else {
+                        await document.exitFullscreen();
+                    }
+                } catch (err) {
+                    console.error('Fullscreen error:', err);
+                    // Fallback: Open in new window
+                    window.open(iframe.src, '_blank', 'fullscreen=yes');
+                }
+            });
 
+            // Update button text based on fullscreen state
+            document.addEventListener('fullscreenchange', () => {
+                fullscreenButton.textContent = document.fullscreenElement 
+                    ? 'Exit Fullscreen' 
+                    : 'Toggle Fullscreen';
+            });
+        });
+    </script>
 </body>
 </html>

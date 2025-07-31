@@ -1,0 +1,5 @@
+#myIframe {
+  width: 80vw; /* Example: 80% of viewport width */
+  height: 60vh; /* Example: 60% of viewport height */
+  border: none;
+}
