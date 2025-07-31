@@ -12,16 +12,12 @@ const gameSchema = new mongoose.Schema({
         type:String
     },
     creater:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
+        
         
     }
-    , raitting:[raittingSchema],
-    width:{
-        type:Number
-    },
-    height:{
-        type:Number
-    }
+    , raitting:[raittingSchema]
+    
 
 })
 

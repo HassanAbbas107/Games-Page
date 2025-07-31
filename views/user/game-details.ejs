@@ -9,12 +9,14 @@
    <h1 style="text-align: center;"> <%=foundGame.name %></h1>
     <iframe style="height: 500px;width:900px; margin: 0 auto;   " src="<%=foundGame.link%>" >
     </iframe> 
-    
+    <% if (user._id == foundGame.creater) { %>
     <form action="/game/<%=foundGame._id%>?_method=DELETE" method="post">
     <button type="submit">Delete Game</button>
     <a href="/game/<%= foundGame._id%>/update">update the game</a>
    </form>
     
+    <% } %>
+
 
 </body>
 </html>
