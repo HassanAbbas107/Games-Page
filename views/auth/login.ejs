@@ -6,25 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-            
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background: #020024;
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+        }
+
+        div {
+            margin: 50px;
+        }
+
+        input {
+            border: 1px solid #871976;
+            padding: 8px;
+            border-radius: 4px;
+            background: #020024;
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(2, 0, 36, 1) 100%);
+        }
+
+        #borDiv {
+            border: 2px solid rgb(116, 13, 116);
+            width: 400px;
+            padding: 20px;
+            border-radius: 9px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        }
+
+        button {
+            background: #020024;
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(2, 0, 36, 1) 100%);
+            color: #ccc;
+
         }
     </style>
 </head>
 
 <body>
     <%- include('../partials/navbar') %>
-        <h1>Log in</h1>
-        <form action="/auth/login" method="post">
+        <h1>Log in</h1><div>
+            <form action="/auth/login" method="post">
+            <div id="borDiv">
+                <div>
             <label for="username">username:</label>
-            <input type="text" name="username" id="username">
-
+            <input type="text" name="username" id="username"></div>
+            <div>
             <label for="password">password:</label>
             <input type="password" name="password" id="password">
-
+                    </div>
             <button>Login</button>
+        </div>
         </form>
-
         <% if (error) { %>
             <p style="color:red" class="error">
                 <%= error %>
