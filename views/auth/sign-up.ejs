@@ -4,22 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            
+        }
+        div{
+            margin: 50px;
+        }
+            input {
+        border: 1px solid #ccc;
+        padding: 8px;
+        border-radius: 4px;
+    }
+    #borDiv{
+        border:  solid gold;
+        width: 400px;
+        height: 280px;
+        display:block ;
+        border-radius: 9px;
+        
+    }
+    button{
+        background-color:black;
+        color: aliceblue;
+    }
+    </style>
 </head>
 <body>
         <%- include('../partials/navbar') %>
 
     <h1>Sign Up</h1>
-    <form action="/auth/sign-up" method="post">
+    <form action="/auth/sign-up" method="post"><div id="borDiv">
+        <div>   
         <label for="username">username:</label>
-        <input type="text" name="username" id="username">
-
+        <input type="text" name="username" id="username" placeholder="Enter your name here">
+        </div>  
+        <div>
         <label for="password">password:</label>
-        <input type="password" name="password" id="password">
-
+        <input type="password" name="password" id="password" placeholder="Enter your password here">
+        </div>
         <button>Sign Up</button>
     </form>
     <% if (error) { %>
   <p style="color:red" class="error"><%= error %></p>
 <% } %>
+</div>
 </body>
 </html>
