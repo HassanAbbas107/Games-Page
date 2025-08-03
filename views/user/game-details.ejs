@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= foundGame.name %></title>
-    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="/style.css" /> -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background: #020024;
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+        }button {
+            background: #020024;
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(2, 0, 36, 1) 100%);
+            color: #ccc;
+                margin: 10px;                }
+            iframe{
+                height: 200px;
+                width: 45%;
+            }
+    </style>
 </head>
 <body>
    <h1 style="text-align: center;"><%= foundGame.name %></h1>
     <iframe id="myIframe" src="<%= foundGame.link %>" allow="fullscreen"></iframe>
     <button id="fullscreenButton">Toggle Fullscreen</button>
-
+        
     <% if (user && user._id == foundGame.creater) { %>
       <form action="/game/<%= foundGame._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete Game</button>
@@ -53,6 +75,8 @@
             });
         });
     </script> 
-    <!-- ref for script -->
+    <!-- ref for script Fullscreen API Tutorial: https://www.w3schools.com/howto/howto_js_fullscreen.asp
+
+ -->
 </body>
 </html>

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const cloudinary = require("cloudinary")
 const raittingSchema = new mongoose.Schema({
     rate: String,
     content: String,
