@@ -10,7 +10,7 @@ const session = require("express-session")
 const passUserToView = require('./middleware/passUserToView')
 const isSignedIn = require("./middleware/isSignedIn")
 const gameRoute = require("./routes/game.routes")
-
+const cloudinary = require("cloudinary").v2
 
 
 

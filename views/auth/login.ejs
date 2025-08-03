@@ -52,23 +52,23 @@ background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%,
 <body>
     <%- include('../partials/navbar') %>
         <h1>Log in</h1><div>
-            <form action="/auth/login" method="post">
             <div id="borDiv">
+            <form action="/auth/login" method="post">
                 <div>
             <label for="username">username:</label>
-            <input type="text" name="username" id="username"></div>
+            <input type="text" name="username" id="username" placeholder="Enter your name here"></div>
             <div>
             <label for="password">password:</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" placeholder="Enter your password here">
                     </div>
             <button>Login</button>
-        </div>
         </form>
         <% if (error) { %>
             <p style="color:red" class="error">
                 <%= error %>
             </p>
             <% } %>
+        </div>
 
 </body>
 
