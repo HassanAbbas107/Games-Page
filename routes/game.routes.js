@@ -3,9 +3,16 @@ const router = require("express").Router()
 const User =require("../models/User")
 const isSignedIn = require("../middleware/isSignedIn");
 
+router.get("/random", async(req,res)=>{
+    console.log("Random game")
+    const randomGame = await Game.aggregate().sample(1);
+    console.log('random Game',randomGame)
+        res.render(`user/game-details`,{foundGame:randomGame[0]})
+})
 
 router.get("/home",async(req,res)=>{
     const allGames = await Game.find()
+    console.log(allGames)
     res.render("user/home.ejs",{allGames: allGames})
 })
 
@@ -74,10 +81,6 @@ router.put("/:gameId",isSignedIn,async(req,res)=>{
     const updatedgame = await  Game.findByIdAndUpdate(req.params.gameId, req.body)
     res.redirect("/game/home")
 })
-router.get("/:gameId",async(req,res)=>{
-const RGames = await Game.find()
-        const randomIndex = Math.floor(Math.random() * RGames.length);
-        RGames[randomIndex]
-})
+
 
 module.exports = router

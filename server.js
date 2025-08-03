@@ -13,9 +13,16 @@ const gameRoute = require("./routes/game.routes")
 const cloudinary = require("cloudinary").v2
 
 
+// cloudinary.config({
+//     cloud_name: process.env.CLOUDNAME,
+//     api_key: process.env.APIKEY,
+//     api_secret: process.env.APISECRET // Click 'View API Keys' above to copy your API secret
+// });
 
-
-
+// (async function(){
+//   const results = await cloudinary.uploader.upload('')
+// }
+// )();
 // Middleware
 app.use(express.static('public')); //all static files are in the public folder
 app.use(express.urlencoded({ extended: false })); // this will allow us to see the data being sent in the POST or PUT
