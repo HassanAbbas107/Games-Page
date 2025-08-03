@@ -74,5 +74,10 @@ router.put("/:gameId",isSignedIn,async(req,res)=>{
     const updatedgame = await  Game.findByIdAndUpdate(req.params.gameId, req.body)
     res.redirect("/game/home")
 })
+router.get("/:gameId",async(req,res)=>{
+const RGames = await Game.find()
+        const randomIndex = Math.floor(Math.random() * RGames.length);
+        RGames[randomIndex]
+})
 
 module.exports = router
